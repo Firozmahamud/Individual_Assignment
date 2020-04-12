@@ -22,5 +22,8 @@ Route::post('/system/supportstaff/login', 'LoginController@verify');
 
 //admin index
 Route::get('/system/supportstaff/admin', 'AdminController@index')->name('admin.index');
+
+//admin bus list
+Route::get('/system/ buses', 'AdminController@buses')->name('admin.buses');
 //manager
 Route::get('/system/supportstaff/manager', 'ManagerController@index')->name('manager.index');
