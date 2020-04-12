@@ -22,7 +22,7 @@ class AdminController extends Controller
         
     }
 
-    //search bus
+    //search 
     public function searchBus($id){
         //error_log($id);
         $bus = Bus::where('busId', $id)->get();
@@ -31,41 +31,6 @@ class AdminController extends Controller
     }
 
 
-    //add bus
-    public function addBus(){
-        return view('admin.addBus');
-    }
-    public function insertBus(Request $req){
-        $req->validate([
-            'name' => 'required',
-            'operator' => 'required',
-            'location' => 'required',
-            'seat_row' => 'bail|required|numeric',
-            'seat_column' => 'bail|required|numeric',
-            'company' => 'required',
-        ]);
-
-        $name = $req->name;
-        $operator = $req->operator;
-        $location = $req->location;
-        $seat_row = $req->seat_row; 
-        $seat_column = $req->seat_column;
-        $company = $req->company;
-
-        $data = new Bus;
-
-        $data->name = $name;
-        $data->operator = $operator;
-        $data->location = $location;
-        $data->seat_row  = $seat_row ;
-        $data->seat_column = $seat_column;
-        $data->company = $company;
-
-        if($data->save()){
-            $req->session()->flash('insertBus', 'Bus info insert success');
-            return redirect()->route('admin.buses');
-        }
-    }
 
     //edit bus
     public function editBus($id){
@@ -108,14 +73,7 @@ class AdminController extends Controller
         }
     }
 
-    //Delete Bus
-    public function deleteBus($id){
-        $bus = Bus::find($id);
-        Bus::where('busId', $id)->delete();
-       // return redirect()->route('admin.buses');
-       return url('/system/ buses');
-    }
-
+    
     //busSchedule List
     public function busSchedule(){
         $busSchedule = Schedule::all();

@@ -25,5 +25,14 @@ Route::get('/system/supportstaff/admin', 'AdminController@index')->name('admin.i
 
 //admin bus list
 Route::get('/system/ buses', 'AdminController@buses')->name('admin.buses');
+//admin edit buss
+Route::get('/system/buses/{id}/edit', 'AdminController@editBus')->name('admin.editBuses');
+Route::patch('/system/buses/{id}/edit', 'AdminController@updateBus');
+//admin delete buss
+Route::delete('/system/buses/{id}/delete', 'AdminController@deleteBus')->name('admin.deleteBuses');
+//admin search Bus
+Route::post('/system/buses/ajax/{search}', 'AdminController@searchBus')->name('admin.searchBus');
+
+
 //manager
 Route::get('/system/supportstaff/manager', 'ManagerController@index')->name('manager.index');
