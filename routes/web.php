@@ -16,11 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home',function(){
-
-return view ('home.index');
-});
-Route::get('/login',function(){
-
-return view ('login.index');
-});
+//login
+Route::get('/system/supportstaff/login', 'LoginController@index')->name('login');
+Route::post('/system/supportstaff/login', 'LoginController@verify');

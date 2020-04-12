@@ -1,48 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
 </head>
 <body>
-    
-<form method="POST" >
-
-<center>
+    <center>
+    <h1>Login Page</h1>
     <table>
-    <h2> login here</h2>
-        <tbody>
-            <tr>
-                <td>
-                   
-                    <label for="">E-mail:</label>
-                    <input type="email"  name="u_email" required placeholder="Enter your E-mail address.">
-                    
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                
-                    <label for="">Password:</label>
-                    <input type="password"  name="u_pass" required placeholder="Enter your password.">
-                   
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                   <button type="submit">Login</button>
-                   
-                    
-                </td>
-            </tr>
-        </tbody>
+    @foreach ($errors->all() as $error)
+        {{$error}} <br>   
+    @endforeach
+    <form method="post" >
+        @csrf
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email" > </td>
+        <tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" ></td>
+        <tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Submit" ></td>
+        <tr>
+        
+    </form>
     </table>
-    </center>
-    <!-- </div> -->
-</form>
-
+</center>
+    <h3>{{session('msg')}}</h3>
 </body>
 </html>
+
