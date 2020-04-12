@@ -19,3 +19,8 @@ Route::get('/', function () {
 //login
 Route::get('/system/supportstaff/login', 'LoginController@index')->name('login');
 Route::post('/system/supportstaff/login', 'LoginController@verify');
+
+//admin index
+Route::get('/system/supportstaff/admin', 'AdminController@index')->name('admin.index');
+//manager
+Route::get('/system/supportstaff/manager', 'ManagerController@index')->name('manager.index');
